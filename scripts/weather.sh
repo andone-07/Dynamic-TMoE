@@ -1,0 +1,154 @@
+export CUDA_VISIBLE_DEVICES=0
+
+model_name=Dynamic_TMoE
+
+drift_window_size=1440
+num_drift_experts=3
+batch_size=256
+train_epochs=50
+patience=10
+cycle_length=1008
+drift_k_sigma=3.0
+channel_independence=1
+use_relation_layer=1
+enable_drift_detection=1
+
+python -u run.py \
+  --task_name long_term_forecast \
+  --is_training 1 \
+  --root_path ./dataset/weather/ \
+  --data_path weather.csv \
+  --model_id weather_96_96 \
+  --model $model_name \
+  --data custom \
+  --features M \
+  --seq_len 96 \
+  --label_len 48 \
+  --pred_len 96 \
+  --enc_in 21 \
+  --dec_in 21 \
+  --c_out 21 \
+  --des 'Exp' \
+  --itr 1 \
+  --patch_len 96 \
+  --stride 24 \
+  --batch_size $batch_size \
+  --d_model 128 \
+  --learning_rate 0.0012 \
+  --train_epochs $train_epochs \
+  --patience $patience \
+  --dropout 0.1 \
+  --cycle_length $cycle_length \
+  --drift_window_size $drift_window_size \
+  --drift_k_sigma $drift_k_sigma \
+  --num_temporal_moe_layers 1 \
+  --num_rnn_layers 2 \
+  --num_drift_experts $num_drift_experts \
+  --channel_independence $channel_independence \
+  --use_relation_layer $use_relation_layer \
+  --enable_drift_detection $enable_drift_detection \
+
+python -u run.py \
+  --task_name long_term_forecast \
+  --is_training 1 \
+  --root_path ./dataset/weather/ \
+  --data_path weather.csv \
+  --model_id weather_96_192 \
+  --model $model_name \
+  --data custom \
+  --features M \
+  --seq_len 96 \
+  --label_len 48 \
+  --pred_len 192 \
+  --enc_in 21 \
+  --dec_in 21 \
+  --c_out 21 \
+  --des 'Exp' \
+  --itr 1 \
+  --patch_len 96 \
+  --stride 24 \
+  --batch_size $batch_size \
+  --d_model 128 \
+  --learning_rate 0.0004 \
+  --train_epochs $train_epochs \
+  --patience $patience \
+  --dropout 0.1 \
+  --cycle_length $cycle_length \
+  --drift_window_size $drift_window_size \
+  --drift_k_sigma $drift_k_sigma \
+  --num_temporal_moe_layers 1 \
+  --num_rnn_layers 1 \
+  --num_drift_experts $num_drift_experts \
+  --channel_independence $channel_independence \
+  --use_relation_layer $use_relation_layer \
+  --enable_drift_detection $enable_drift_detection \
+
+python -u run.py \
+  --task_name long_term_forecast \
+  --is_training 1 \
+  --root_path ./dataset/weather/ \
+  --data_path weather.csv \
+  --model_id weather_96_336 \
+  --model $model_name \
+  --data custom \
+  --features M \
+  --seq_len 96 \
+  --label_len 48 \
+  --pred_len 336 \
+  --enc_in 21 \
+  --dec_in 21 \
+  --c_out 21 \
+  --des 'Exp' \
+  --itr 1 \
+  --patch_len 96 \
+  --stride 48 \
+  --batch_size $batch_size \
+  --d_model 256 \
+  --learning_rate 0.0006 \
+  --train_epochs $train_epochs \
+  --patience $patience \
+  --dropout 0.1 \
+  --cycle_length $cycle_length \
+  --drift_window_size $drift_window_size \
+  --drift_k_sigma $drift_k_sigma \
+  --num_temporal_moe_layers 2 \
+  --num_rnn_layers 1 \
+  --num_drift_experts $num_drift_experts \
+  --channel_independence $channel_independence \
+  --use_relation_layer $use_relation_layer \
+  --enable_drift_detection $enable_drift_detection \
+  
+python -u run.py \
+  --task_name long_term_forecast \
+  --is_training 1 \
+  --root_path ./dataset/weather/ \
+  --data_path weather.csv \
+  --model_id weather_96_720 \
+  --model $model_name \
+  --data custom \
+  --features M \
+  --seq_len 96 \
+  --label_len 48 \
+  --pred_len 720 \
+  --enc_in 21 \
+  --dec_in 21 \
+  --c_out 21 \
+  --des 'Exp' \
+  --itr 1 \
+  --patch_len 96 \
+  --stride 12 \
+  --batch_size $batch_size \
+  --d_model 128 \
+  --learning_rate 0.0006 \
+  --train_epochs $train_epochs \
+  --patience $patience \
+  --dropout 0.1 \
+  --cycle_length $cycle_length \
+  --drift_window_size $drift_window_size \
+  --drift_k_sigma $drift_k_sigma \
+  --num_temporal_moe_layers 2 \
+  --num_rnn_layers 2 \
+  --num_drift_experts $num_drift_experts \
+  --channel_independence $channel_independence \
+  --use_relation_layer $use_relation_layer \
+  --enable_drift_detection $enable_drift_detection \

@@ -71,11 +71,13 @@ bash ./scripts/ETTh1.sh
 If you find this repository useful, please cite our paper:
 
 ```bibtex
-@inproceedings{zhu_2026_dynamic_tmoe,
-  title={Dynamic {TM}oE: A Drift-Aware Dynamic Mixture of Experts Framework for Non-Stationary Time Series Forecasting},
-  Author={Zhu, Jiawen and Liu, Shuhan and Weng, Di and Wu, Yingcai},
+@inproceedings{
+  zhu2026dynamic_tmoe,
+  title={Dynamic {TMoE}: A Drift-Aware Dynamic Mixture of Experts Framework for Non-Stationary Time Series Forecasting},
+  author={Jiawen Zhu and Shuhan Liu and Di Weng and Yingcai Wu},
   booktitle={Forty-third International Conference on Machine Learning},
-  year={2026}
+  year={2026},
+  url={https://openreview.net/forum?id=JabkBcaoa9}
 }
 ```
 
